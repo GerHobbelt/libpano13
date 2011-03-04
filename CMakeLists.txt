@@ -43,7 +43,7 @@ ELSE(HUGIN_BASE_DIR)
 ENDIF(HUGIN_BASE_DIR)
 
 IF(WIN32)
-  set(CMAKE_INSTALL_PREFIX "${SOURCE_BASE_DIR}/libpano13" CACHE PATH "Install prefix for hugin SDK")
+  set(CMAKE_INSTALL_PREFIX "${SOURCE_BASE_DIR}/libpano13" CACHE PATH "Install prefix for libpano")
 ENDIF(WIN32)
 
 include(CheckIncludeFiles)
@@ -52,14 +52,10 @@ include(CheckIncludeFiles)
 project(libpano13)
 
 ##
-## wxWidgets
-##
 #  This must come before FINDs for tiff, jpeg, png, zlib to enable
 #  finding the wxWidgets distributions of those packages on Windows.
 IF(WIN32)
-  SET(wxWidgets_ROOT_DIR ${SOURCE_BASE_DIR}/wxWidgets-2.8.10)
   ADD_DEFINITIONS(-D__Win__)
-  FIND_PACKAGE(wxWidgets REQUIRED)
   set(win_c "tools/compat_win32/getopt.c")
 ENDIF(WIN32)
 
@@ -281,6 +277,15 @@ foreach(_c_l ${_config_lines})
   endif()
 endforeach(_c_l)
 
+# create TAGS file
+ADD_CUSTOM_COMMAND( OUTPUT ctags POST_BUILD
+                   COMMAND ctags-exuberant -e *.c *.h tools/*.c
+                   WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/
+                   COMMENT "Build TAGS file"
+                 )
+ADD_CUSTOM_TARGET( TAGS DEPENDS ctags)
+
+
 # set some variables which are used in libpano13.pc.in
 set(prefix ${CMAKE_INSTALL_PREFIX})
 set(exec_prefix ${CMAKE_INSTALL_PREFIX})
@@ -326,7 +331,6 @@ endif()
 set(CPACK_SOURCE_PACKAGE_FILE_NAME "libpano13-${PACKAGE_VERSION}")
 
 include(CPack)
-
 
 enable_testing()
 add_subdirectory(tests)
