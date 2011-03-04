@@ -305,7 +305,7 @@ int MorphImageFile( char *sfile, char *dfile, AlignInfo *g,int nIm )
 int blendImages( char *f0,  char *f1, char *result, double s )
 {
 	double u = 1.0 - s, r;
-	pt_int32 x,y,cy,i;
+	uint32_t x,y,cy,i;
 	Image im0, im1;
 	unsigned char *c0, *c1;
 	
