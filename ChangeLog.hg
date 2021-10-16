@@ -1,3 +1,351 @@
+2021-09-18 11:22 +0200  tmodes  <tmodes>  (454a8e337d54 [tip])
+
+	* CMakeLists.txt:
+	Silence a CMake warning
+
+2021-09-18 11:08 +0200  tmodes  <tmodes>  (ef176a030c82)
+
+	* PTcommon.c, parser.c, ppm.c, resample.c,
+	tests/simpleTiff2psd/reference/simpleStitch_crop_1_layer.psd,
+	tests/simpleTiff2psd/reference/simpleStitch_crop_2_layer.psd,
+	tests/simpleTiff2psd/reference/simpleStitch_uncrop_1_layer.psd,
+	tests/simpleTiff2psd/reference/simpleStitch_uncrop_2_layer.psd,
+	tests/simpleTiff2psd/reference/simpleTiff16-16-_uncrop_1_layer.psd,
+	tests/simpleTiff2psd/reference/simpleTiff16-16-_uncrop_2_layer.psd:
+	Merged branch libpano13-2.9.21
+
+2021-09-18 11:04 +0200  tmodes  <tmodes>  (e1b647e267a0 <libpano13-2.9.21>)
+
+	* tests/README.TXT,
+	tests/simpleTiff2psd/tests/simpleStitch_crop_1_layer.psd,
+	tests/simpleTiff2psd/tests/simpleStitch_crop_2_layer.psd,
+	tests/simpleTiff2psd/tests/simpleStitch_uncrop_1_layer.psd,
+	tests/simpleTiff2psd/tests/simpleStitch_uncrop_2_layer.psd,
+	tests/simpleTiff2psd/tests/simpleTiff16-16-_uncrop_1_layer.psd,
+	tests/simpleTiff2psd/tests/simpleTiff16-16-_uncrop_2_layer.psd:
+	deleted file.
+	* tests/README.TXT,
+	tests/simpleTiff2psd/tests/simpleStitch_crop_1_layer.psd,
+	tests/simpleTiff2psd/tests/simpleStitch_crop_2_layer.psd,
+	tests/simpleTiff2psd/tests/simpleStitch_uncrop_1_layer.psd,
+	tests/simpleTiff2psd/tests/simpleStitch_uncrop_2_layer.psd,
+	tests/simpleTiff2psd/tests/simpleTiff16-16-_uncrop_1_layer.psd,
+	tests/simpleTiff2psd/tests/simpleTiff16-16-_uncrop_2_layer.psd:
+	Remove unused files
+
+2021-09-18 11:03 +0200  tmodes  <tmodes>  (d247e9b41788 <libpano13-2.9.21>)
+
+	* file.c,
+	tests/simpleTiff2psd/reference/simpleStitch_crop_1_layer.psd,
+	tests/simpleTiff2psd/reference/simpleStitch_crop_2_layer.psd,
+	tests/simpleTiff2psd/reference/simpleStitch_uncrop_1_layer.psd,
+	tests/simpleTiff2psd/reference/simpleStitch_uncrop_2_layer.psd,
+	tests/simpleTiff2psd/reference/simpleTiff16-16-_uncrop_1_layer.psd,
+	tests/simpleTiff2psd/reference/simpleTiff16-16-_uncrop_2_layer.psd:
+	PTTiff2psd: Don't write libpano13 version number in generated files
+
+	Regenerate test reference files with libpano13 version number
+
+2021-09-18 11:02 +0200  tmodes  <tmodes>  (d75bed990894 <libpano13-2.9.21>)
+
+	* adjust.c, levmar.c, levmar.h, optimize.c:
+	Further speedup of sparse optimizer by direct calculation of
+	Jacobian matrix
+
+	Initial patch by Florian Königstein
+
+2021-09-14 17:47 +0200  tmodes  <tmodes>  (fd9dd1404381)
+
+	* tests/simpleTiff2psd/reference/simpleStitch_crop_1_layer.psd,
+	tests/simpleTiff2psd/reference/simpleStitch_crop_2_layer.psd,
+	tests/simpleTiff2psd/reference/simpleStitch_uncrop_1_layer.psd,
+	tests/simpleTiff2psd/reference/simpleStitch_uncrop_2_layer.psd,
+	tests/simpleTiff2psd/reference/simpleTiff16-16-_uncrop_1_layer.psd,
+	tests/simpleTiff2psd/reference/simpleTiff16-16-_uncrop_2_layer.psd:
+	Update version number in reference files for test
+
+	Test are now passed again
+
+2021-05-09 16:28 +0200  tmodes  <tmodes>  (6f94e735c4b7 <libpano13-2.9.21>)
+
+	* parser.c:
+	Check that linking of image variables is done correctly
+
+	Reject forward linking or negative image numbers
+
+2021-04-23 17:55 +0200  tmodes  <tmodes>  (62aa7eed8fae <libpano13-2.9.21>)
+
+	* parser.c:
+	Check pointer before incrementing - prevent crash
+
+2021-04-23 17:55 +0200  tmodes  <tmodes>  (40c5cc21f660 <libpano13-2.9.21>)
+
+	* tools/PTtiffdump.c:
+	PTtiffdump: Removed unused overwrite option
+
+2021-04-23 17:54 +0200  tmodes  <tmodes>  (9efcca9c36ea <libpano13-2.9.21>)
+
+	* tools/PTtiffdump.c:
+	PTtiffdump: Fixes typos in usage screen
+
+2021-04-15 19:19 +0200  tmodes  <tmodes>  (efd9cc171025 <libpano13-2.9.21>)
+
+	* CMakeLists.txt:
+	More fiddeling with install target on Windows
+
+	Some more dll were needed Improve search logic
+
+2021-04-15 18:17 +0200  tmodes  <tmodes>  (51ea609a2352 <libpano13-2.9.21>)
+
+	* .cvsignore, doc/.cvsignore, man/.cvsignore, tests/.cvsignore,
+	tests/simpleStitch/.cvsignore,
+	tests/simpleStitch/reference/.cvsignore,
+	tests/simpleTiff16/.cvsignore,
+	tests/simpleTiff16/reference/.cvsignore, tools/.cvsignore: deleted
+	file.
+	* .cvsignore, doc/.cvsignore, man/.cvsignore, tests/.cvsignore,
+	tests/simpleStitch/.cvsignore,
+	tests/simpleStitch/reference/.cvsignore,
+	tests/simpleTiff16/.cvsignore,
+	tests/simpleTiff16/reference/.cvsignore, tools/.cvsignore:
+	Removed old and outdated files from CVS
+
+2021-04-15 18:16 +0200  tmodes  <tmodes>  (a491c533c1c4 <libpano13-2.9.21>)
+
+	* README.windows, makefile.win32: deleted file.
+	* README.windows, makefile.win32:
+	Removed obsolete files for Windows
+
+2021-04-15 18:15 +0200  tmodes  <tmodes>  (adb2b4a56090 <libpano13-2.9.21>)
+
+	* CMakeLists.txt:
+	Install necessary DLL for Windows
+
+2021-04-15 17:57 +0200  tmodes  <tmodes>  (06f08ec6d7ca <libpano13-2.9.21>)
+
+	* CMakeLists.txt, man/CMakeLists.txt:
+	Create the man pages during build process
+
+2021-04-15 08:51 +0100  Bruno Postle  <bruno@postle.net>  (42b62897faf3 <libpano13-2.9.21>)
+
+	* AUTHORS:
+	Convert AUTHORS file from Latin1 to UTF-8
+
+2021-04-15 00:50 +0100  Bruno Postle  <bruno@postle.net>  (115bebb424ed <libpano13-2.9.21>)
+
+	* CMakeLists.txt:
+	CMake pick-up version number from version.h
+
+2021-04-15 00:19 +0100  Bruno Postle  <bruno@postle.net>  (31ab188bf42d <libpano13-2.9.21>)
+
+	* README.linux: deleted file.
+	* INSTALL, README, README.linux:
+	Update installation instructions for cmake build system
+
+2021-04-14 23:41 +0100  Bruno Postle  <bruno@postle.net>  (f57d275ee4d6 <libpano13-2.9.21>)
+
+	* PTcommon.c, parser.c, ppm.c, resample.c:
+	remove executable bit from source files
+
+2021-04-14 23:34 +0100  Bruno Postle  <bruno@postle.net>  (7448ebf4d707 <libpano13-2.9.21>)
+
+	* CMakeModules/FindSUITESPARSE.cmake, man/Makefile: new file.
+	* Makefile.am, bootstrap, build/.cvsignore,
+	build/CMakeModules/FindSUITESPARSE.cmake, build/Makefile.am,
+	build/README, build/win32/.cvsignore, build/win32/Makefile.am,
+	build/win32/compile-resource, build/win32/lt-compile-resource,
+	configure.ac, doc/Makefile.am, m4/.cvsignore, m4/Makefile.am,
+	m4/ax_check_graphics.m4, m4/ax_check_java.m4, man/Makefile.am,
+	tests/Makefile.am, tests/simpleStitch/Makefile.am,
+	tests/simpleStitch/reference/Makefile.am,
+	tests/simpleTiff16/Makefile.am,
+	tests/simpleTiff16/reference/Makefile.am,
+	tests/simpleTiff2psd/Makefile.am,
+	tests/simpleTiff2psd/reference/Makefile.am,
+	tests/simpleTiff2psd/tests/Makefile.am, tools/Makefile.am: deleted
+	file.
+	* .hgignore, CMakeLists.txt, CMakeModules/FindSUITESPARSE.cmake,
+	Makefile.am, bootstrap, build/.cvsignore,
+	build/CMakeModules/FindSUITESPARSE.cmake, build/Makefile.am,
+	build/README, build/win32/.cvsignore, build/win32/Makefile.am,
+	build/win32/compile-resource, build/win32/lt-compile-resource,
+	configure.ac, doc/Makefile.am, m4/.cvsignore, m4/Makefile.am,
+	m4/ax_check_graphics.m4, m4/ax_check_java.m4, man/Makefile,
+	man/Makefile.am, tests/Makefile.am, tests/simpleStitch/Makefile.am,
+	tests/simpleStitch/reference/Makefile.am,
+	tests/simpleTiff16/Makefile.am,
+	tests/simpleTiff16/reference/Makefile.am,
+	tests/simpleTiff2psd/Makefile.am,
+	tests/simpleTiff2psd/reference/Makefile.am,
+	tests/simpleTiff2psd/tests/Makefile.am, tools/Makefile.am:
+	Remove autotools build system
+
+2021-04-14 17:48 +0200  tmodes  <tmodes>  (6413c8758fc8 <libpano13-2.9.21>)
+
+	* build/CMakeModules/FindSUITESPARSE.cmake, levmar.c, levmar.h: new
+	file.
+	* AUTHORS, CMakeLists.txt, adjust.c,
+	build/CMakeModules/FindSUITESPARSE.cmake, levmar.c, levmar.h,
+	optimize.c:
+	Added new sparse Levenberg Marquardt algorithm (Florian Königstein)
+
+	The sparse Levenberg Marquardt should be faster than the current
+	dense Levenberg Marquardt algorithm used before
+
+	It is optional and can be activated in the build system
+
+	It needs the SuiteSparse package for doing the calculations
+
+2021-04-14 17:37 +0200  tmodes  <tmodes>  (41d8c3032007 <libpano13-2.9.21>)
+
+	* parser.c:
+	Added more error checking for reading v lines (Florian Königstein)
+
+2021-04-10 11:33 +0200  tmodes  <tmodes>  (c36f88d24fce <libpano13-2.9.21>)
+
+	* parser.c:
+	Initialize enough value for writing to output, part 2 (Florian
+	Königstein)
+
+	Also provide enough space for the cp description in the PTOptimizer
+	output (for each cp, 3 lines are written)
+
+2021-04-10 10:48 +0200  tmodes  <tmodes>  (0218eab2f0ca <libpano13-2.9.21>)
+
+	* parser.c:
+	Initialize enough value for writing to output (Florian Königstein)
+
+	The introduction of the translation parameters has increased the
+	size of the output block for each image, so increase the size
+
+2021-04-09 17:29 +0200  tmodes  <tmodes>  (2106eb0dfaad <libpano13-2.9.21>)
+
+	* .hgignore:
+	Don't ignore CMake files
+
+2021-04-07 19:31 +0200  tmodes  <tmodes>  (cc6fa699e0bb <libpano13-2.9.21>)
+
+	* optimize.c:
+	One more safer string formatting
+
+2021-04-07 19:13 +0200  tmodes  <tmodes>  (c1955b6aca96 <libpano13-2.9.21>)
+
+	* lmdif.c, optimize.c:
+	Explicit use 64 bit int type for fjac in LMStruct
+
+	On Windows, even on 64 bit system int is only 32 bit For big project
+	the 32 bit integer is too small for holding all values in fjac
+
+	Patch based on initial findings by Florian Königstein
+
+2021-04-07 17:21 +0200  tmodes  <tmodes>  (40f9fc3210d3 <libpano13-2.9.21>)
+
+	* parser.c:
+	Removed an unnecessary while check
+
+2021-04-06 18:26 +0200  tmodes  <tmodes>  (d525d97cd36c <libpano13-2.9.21>)
+
+	* parser.c:
+	Correctly count empty lines when parsing script
+
+2021-04-06 17:13 +0200  tmodes  <tmodes>  (6efce6f96b29 <libpano13-2.9.21>)
+
+	* parser.c:
+	One more fix for format string in error reporting
+
+2021-04-06 17:13 +0200  tmodes  <tmodes>  (1909bbffd0b5 <libpano13-2.9.21>)
+
+	* CMakeLists.txt:
+	Fixes typo in CMake
+
+2021-04-06 17:13 +0200  tmodes  <tmodes>  (0890432e6c60 <libpano13-2.9.21>)
+
+	* CMakeLists.txt:
+	CMake: Set minimum version to 3.0
+
+	Newer CMake version don't support compatibility to 2.8 version
+	anymore
+
+2011-05-02 00:00 +0100  Bruno Postle  <bruno@postle.net>  (bd4240de8a4f)
+
+	* .hgtags:
+	Added tag 2.9.18 for changeset bea8d3f35359
+
+2014-06-04 00:00 +0100  Bruno Postle  <bruno@postle.net>  (61c8d5e1aa7a)
+
+	* .hgtags:
+	Added tag 2.9.19 for changeset 7339b1014e88
+
+2021-04-06 15:14 +0100  Bruno Postle  <bruno@postle.net>  (647a2c63f080)
+
+	* .hgtags: new file.
+	* .hgtags:
+	Added tag 2.9.20 for changeset e2d59edbddf5
+
+2021-04-05 18:07 +0200  tmodes  <tmodes>  (0d5b64db974a <libpano13-2.9.21>)
+
+	* parser.c:
+	Fix some error strings
+
+2021-04-05 17:21 +0200  tmodes  <tmodes>  (be688177f217 <libpano13-2.9.21>)
+
+	* PaniniGeneral.c:
+	Fixes an include, use local version
+
+2021-04-04 17:15 +0200  tmodes  <tmodes>  (db0620862d38 <libpano13-2.9.21>)
+
+	* ColourBrightness.c, PTcommon.c, adjust.c, correct.c, file.c,
+	filter.c, fourier.c, optimize.c, parser.c, ppm.c, ptstitch.c,
+	resample.c, seamer_.c, sys_ansi.c, sys_compat_win.c, sys_win.c,
+	tools/PTAInterpolate.c, tools/PTtiff2psd.c, tools/panoinfo.c:
+	Replace sprintf calls with safer snprintf calls
+
+	Initial patch by Florian Königstein
+
+2021-04-04 16:20 +0200  tmodes  <tmodes>  (cd23befa4e3a <libpano13-2.9.21>)
+
+	* LocalDefs.props, LocalDefs.vsprops, libpano.sln, libpano.vcproj,
+	libpano.vcxproj, tools/PTAInterpolate.vcproj,
+	tools/PTAInterpolate.vcxproj, tools/PTOptimizer.vcproj,
+	tools/PTOptimizer.vcxproj, tools/PTblender.vcproj,
+	tools/PTblender.vcxproj, tools/PTcrop.vcproj, tools/PTcrop.vcxproj,
+	tools/PTinfo.vcproj, tools/PTinfo.vcxproj, tools/PTmasker.vcproj,
+	tools/PTmasker.vcxproj, tools/PTmender.vcproj,
+	tools/PTmender.vcxproj, tools/PTroller.vcproj,
+	tools/PTroller.vcxproj, tools/PTtiff2psd.vcproj,
+	tools/PTtiff2psd.vcxproj, tools/PTtiffdump.vcproj,
+	tools/PTtiffdump.vcxproj, tools/PTuncrop.vcproj,
+	tools/PTuncrop.vcxproj: deleted file.
+	* LocalDefs.props, LocalDefs.vsprops, libpano.sln, libpano.vcproj,
+	libpano.vcxproj, tools/PTAInterpolate.vcproj,
+	tools/PTAInterpolate.vcxproj, tools/PTOptimizer.vcproj,
+	tools/PTOptimizer.vcxproj, tools/PTblender.vcproj,
+	tools/PTblender.vcxproj, tools/PTcrop.vcproj, tools/PTcrop.vcxproj,
+	tools/PTinfo.vcproj, tools/PTinfo.vcxproj, tools/PTmasker.vcproj,
+	tools/PTmasker.vcxproj, tools/PTmender.vcproj,
+	tools/PTmender.vcxproj, tools/PTroller.vcproj,
+	tools/PTroller.vcxproj, tools/PTtiff2psd.vcproj,
+	tools/PTtiff2psd.vcxproj, tools/PTtiffdump.vcproj,
+	tools/PTtiffdump.vcxproj, tools/PTuncrop.vcproj,
+	tools/PTuncrop.vcxproj:
+	Removed Visual studio solution files They can be recreated with the
+	CMake build system
+
+2021-04-04 16:16 +0200  tmodes  <tmodes>  (ac03fda20014 <libpano13-2.9.21>)
+
+	* ColourBrightness.c, queryfeature.c:
+	Removed some workaround for newer MS Visual compilers
+
+2021-04-04 16:16 +0200  tmodes  <tmodes>  (2b892d820e97 <libpano13-2.9.21>)
+
+	* configure.ac, version.h:
+	Update version numbers
+
+2021-03-16 20:28 +0000  Bruno Postle  <bruno@postle.net>  (e2d59edbddf5 [2.9.20])
+
+	* ChangeLog.hg:
+	update ChangeLog for rc3
+
 2021-03-16 17:23 +0100  tmodes  <tmodes>  (f02459498cb4 [tip])
 
 	* file.c, tools/PTcrop.c:
