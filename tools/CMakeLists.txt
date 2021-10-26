@@ -20,7 +20,7 @@ macro(make_command exe_name source_name)
   list(APPEND extra_commands ${exe_name})
   add_executable(${exe_name} ${source_name})
   target_link_libraries(${exe_name} ${_pano_target} ${_common_libs})
-  install(TARGETS ${exe_name} DESTINATION bin COMPONENT tools CONFIGURATIONS Release RelWithDebInfo MinSizeRel)
+  install(TARGETS ${exe_name} DESTINATION bin COMPONENT tools)
 endmacro()
 
 if(WIN32)
