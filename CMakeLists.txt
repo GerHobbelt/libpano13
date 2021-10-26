@@ -284,13 +284,13 @@ ENDIF()
 
 if(NOT WIN32)
   # Create and install shared library on non-windows
-  add_library(pano13 SHARED ${pano13_hdr} ${pano13_res} ${pano13_src})
+  add_library(pano13 SHARED ${pano13_hdr} ${pano13_src})
   target_link_libraries(pano13 ${_common_libs})
   set_target_properties(pano13 PROPERTIES VERSION "3.0.0" SOVERSION "3")
   install(TARGETS pano13 LIBRARY DESTINATION ${MYLIB} COMPONENT libraries)
   set(_pano_target pano13)
   #create and install static library
-  add_library(pano13a STATIC ${pano13_hdr} ${pano13_res} ${pano13_src})
+  add_library(pano13a STATIC ${pano13_hdr} ${pano13_src})
   set_target_properties(pano13a PROPERTIES OUTPUT_NAME pano13)
   install(TARGETS pano13a ARCHIVE DESTINATION ${MYLIB} COMPONENT libraries)
 else()
