@@ -62,15 +62,6 @@ include(CheckIncludeFiles)
 ##  global setup
 project(libpano13)
 
-set(MYLIB "lib")        # default
-if(CMAKE_INSTALL_PREFIX STREQUAL "/usr")
-  get_property(USE_64 GLOBAL PROPERTY FIND_LIBRARY_USE_LIB64_PATHS)
-  if(USE_64)
-    include(GNUInstallDirs)
-    set(MYLIB ${CMAKE_INSTALL_LIBDIR})
-  endif()
-endif()
-
 ##
 #  This must come before FINDs for tiff, jpeg, png, zlib to enable
 #  finding the wxWidgets distributions of those packages on Windows.
@@ -287,12 +278,12 @@ if(NOT WIN32)
   add_library(pano13 SHARED ${pano13_hdr} ${pano13_src})
   target_link_libraries(pano13 ${_common_libs})
   set_target_properties(pano13 PROPERTIES VERSION "3.0.0" SOVERSION "3")
-  install(TARGETS pano13 LIBRARY DESTINATION ${MYLIB} COMPONENT libraries)
+  install(TARGETS pano13 LIBRARY COMPONENT libraries)
   set(_pano_target pano13)
   #create and install static library
   add_library(pano13a STATIC ${pano13_hdr} ${pano13_src})
   set_target_properties(pano13a PROPERTIES OUTPUT_NAME pano13)
-  install(TARGETS pano13a ARCHIVE DESTINATION ${MYLIB} COMPONENT libraries)
+  install(TARGETS pano13a ARCHIVE COMPONENT libraries)
 else()
   IF(BUILD_DLL)
     # Create and install shared library
@@ -303,11 +294,11 @@ else()
     IF(MINGW)
       set_target_properties(pano13 PROPERTIES PREFIX "")
     ENDIF()
-    install(TARGETS pano13 RUNTIME DESTINATION bin ARCHIVE DESTINATION lib LIBRARY DESTINATION lib COMPONENT libraries)
+    install(TARGETS pano13 COMPONENT libraries)
   ELSE(BUILD_DLL)
     #create and install static library
     add_library(pano13 STATIC ${pano13_hdr} ${pano13_res} ${pano13_src})
-    install(TARGETS pano13 ARCHIVE DESTINATION ${MYLIB} COMPONENT libraries)
+    install(TARGETS pano13 COMPONENT libraries)
   ENDIF(BUILD_DLL)
   set(_pano_target pano13)
 endif()
@@ -406,7 +397,11 @@ set(LIB_ZLIB ${ZLIB_LIBRARY})
 set(LIB_PNG ${PNG_LIBRARY})
 set(VERSION ${PACKAGE_VERSION})
 configure_file("${TOP_SRC_DIR}/libpano13.pc.in" "${CMAKE_BINARY_DIR}/libpano13.pc" @ONLY)
-install(FILES "${CMAKE_BINARY_DIR}/libpano13.pc" DESTINATION "${MYLIB}/pkgconfig" COMPONENT libraries)
+IF(${CMAKE_INSTALL_LIBDIR})
+  install(FILES "${CMAKE_BINARY_DIR}/libpano13.pc" DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig" COMPONENT libraries)
+else()
+  install(FILES "${CMAKE_BINARY_DIR}/libpano13.pc" DESTINATION "lib/pkgconfig" COMPONENT libraries)
+endif()
 
 set(CPACK_PACKAGE_VERSION_MAJOR "${PANO_MAJOR_VERSION}")
 set(CPACK_PACKAGE_VERSION_MINOR "${PANO_MINOR_VERSION}")
@@ -592,7 +587,7 @@ if(CPACK_BINARY_DEB)
   # (but later on when installing)
   SET(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
 
-  SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/${MYLIB}")
+  SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_LIBDIR}")
   SET(CPACK_DEBIAN_PACKAGE_DEBUG ON)
 
   # add the automatically determined parts of the RPATH
