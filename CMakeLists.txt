@@ -112,6 +112,13 @@ INCLUDE_DIRECTORIES(${PNG_INCLUDE_DIR})
 
 set(_common_libs ${TIFF_LIBRARIES} ${ZLIB_LIBRARIES} ${JPEG_LIBRARIES} ${PNG_LIBRARIES})
 
+include(CheckLibraryExists)
+# Does explicit linking against libm work?
+check_library_exists(m exp "" LIBMNEEDED)
+if(LIBMNEEDED)
+  list(APPEND _common_libs "m")
+endif()
+
 # Sparse or dense Levenberg Marquardt
 OPTION(USE_SPARSE_LEVMAR "Use Sparse Levenberg Marquardt algorithm instead of dense Levenberg Marquardt algorithm" OFF)
 IF(USE_SPARSE_LEVMAR)
