@@ -62,6 +62,9 @@ include(CheckIncludeFiles)
 ##  global setup
 project(libpano13)
 
+# support lib/lib64
+include(GNUInstallDirs)
+
 ##
 #  This must come before FINDs for tiff, jpeg, png, zlib to enable
 #  finding the wxWidgets distributions of those packages on Windows.
