@@ -45,6 +45,12 @@
 
 // If you need PT_BIGENDIAN, and don't use MacOS, define it here:
 //#define PT_BIGENDIAN                  1
+#ifdef __GNUC__
+#include <endian.h>
+#if __BYTE_ORDER == __BIG_ENDIAN
+#define PT_BIGENDIAN 1
+#endif
+#endif
 
 typedef unsigned char Boolean;
 
