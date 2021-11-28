@@ -45,8 +45,12 @@
 
 // If you need PT_BIGENDIAN, and don't use MacOS, define it here:
 //#define PT_BIGENDIAN                  1
-#ifdef __GNUC__
+#if defined(__GNUC__) && !defined(__MINGW32__)
+#if defined(__FreeBSD__)
+#include <sys/endian.h>
+#else
 #include <endian.h>
+#endif
 #if __BYTE_ORDER == __BIG_ENDIAN
 #define PT_BIGENDIAN 1
 #endif
