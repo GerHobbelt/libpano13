@@ -1,4 +1,54 @@
-2021-09-18 11:22 +0200  tmodes  <tmodes>  (454a8e337d54 [tip])
+2021-11-28 10:20 +0100  tmodes  <tmodes>  (3fb06db30161 [tip])
+
+	* panorama.h:
+	Improved fix for endianess for more systems
+
+2021-11-02 20:45 +0000  Bruno Postle  <bruno@postle.net>  (84b6a82c8afc)
+
+	* panorama.h:
+	Fix for bigendian architectures (Thomas Modes)
+
+2021-11-01 18:47 +0000  Bruno Postle  <bruno@postle.net>  (4d12cc78cc80)
+
+	* CMakeLists.txt:
+	Fix support for lib/lib64 installation dirs (Andreas Metzler)
+
+2021-10-30 14:37 +0200  tmodes  <tmodes>  (a97fddc5a031)
+
+	* CMakeLists.txt:
+	Fix pkg-config file contents and location (Patch by Andreas Metzler)
+
+2021-10-28 17:43 +0200  tmodes  <tmodes>  (1b0e1a205121)
+
+	* CMakeLists.txt:
+	Check if linking against libm is needed
+
+2021-10-28 17:43 +0200  tmodes  <tmodes>  (b6aef04b6318)
+
+	* CMakeLists.txt:
+	Let CMake for itself figure out the lib directory
+
+2021-10-26 21:24 +0200  tmodes  <tmodes>  (2822f00918bc)
+
+	* tools/CMakeLists.txt:
+	Install tools in all configurations
+
+2021-10-26 17:39 +0200  tmodes  <tmodes>  (343847e37b1f)
+
+	* CMakeLists.txt:
+	Remove Windows rc files from file list for Unix
+
+2021-10-26 17:37 +0200  tmodes  <tmodes>  (af97aa936771)
+
+	* CMakeLists.txt:
+	Fixes generation of libpano13.pc file
+
+2021-10-16 19:04 +0100  Bruno Postle  <bruno@postle.net>  (ac7932640266)
+
+	* ChangeLog.hg:
+	update Changelog.hg
+
+2021-09-18 11:22 +0200  tmodes  <tmodes>  (454a8e337d54)
 
 	* CMakeLists.txt:
 	Silence a CMake warning
