@@ -47,11 +47,15 @@
 //#define PT_BIGENDIAN                  1
 #if defined(__GNUC__) && !defined(__MINGW32__)
 #if defined(__FreeBSD__)
+// special check for FreeBSD because it follow its own rules
 #include <sys/endian.h>
+#if defined(_BYTE_ORDER) && (_BYTE_ORDER == _BIG_ENDIAN)
+#define PT_BIGENDIAN 1
+#endif
 #else
 #include <endian.h>
 #endif
-#if __BYTE_ORDER == __BIG_ENDIAN
+#if defined(__BYTE_ORDER) && (__BYTE_ORDER == __BIG_ENDIAN)
 #define PT_BIGENDIAN 1
 #endif
 #endif
