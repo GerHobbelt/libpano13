@@ -1,4 +1,18 @@
-2021-11-28 10:20 +0100  tmodes  <tmodes>  (3fb06db30161 [tip])
+2021-12-13 17:26 +0100  tmodes  <tmodes>  (ab0c1337006e [tip])
+
+	* Merge
+
+2021-12-13 17:25 +0100  tmodes  <tmodes>  (1f44b6e37e89)
+
+	* panorama.h:
+	Fixes big endian check for FreeBSD
+
+2021-11-29 20:46 +0000  Bruno Postle  <bruno@postle.net>  (cdd43e6c053c)
+
+	* ChangeLog.hg:
+	update ChangeLog.hg
+
+2021-11-28 10:20 +0100  tmodes  <tmodes>  (3fb06db30161)
 
 	* panorama.h:
 	Improved fix for endianess for more systems
