@@ -68,7 +68,7 @@ int readplanarTIFF(Image * im, TIFF * tif)
 
     for (y = 0; y < im->height; y++)
     {
-        TIFFReadScanline(tif, buf, (uint32) y, 0);
+        TIFFReadScanline(tif, buf, y, 0);
         RGBAtoARGB(buf, im->width, im->bitsPerPixel);
         memcpy(*(im->data) + y * im->bytesPerLine, buf,
                (size_t) (im->bytesPerLine));
@@ -121,7 +121,7 @@ int readtif(Image * im, TIFF * tif)
     }
 
     if (TIFFReadRGBAImage
-        (tif, (uint32) w, (uint32) h, (uint32 *) * (im->data), 0))
+        (tif, w, h, (uint32_t *) * (im->data), 0))
     {
         // Convert agbr to argb; flip image vertically
         unsigned char *cline, *ct, *cb;
@@ -197,8 +197,8 @@ void getCropInformationFromTiff(TIFF * tif, CropInfo * c)
 
     //offset in pixels of "cropped" image from top left corner of 
     //full image (rounded to nearest integer)
-    c->x_offset = (uint32) ((x_position * x_resolution) + 0.49);
-    c->y_offset = (uint32) ((y_position * y_resolution) + 0.49);
+    c->x_offset = (uint32_t) ((x_position * x_resolution) + 0.49);
+    c->y_offset = (uint32_t) ((y_position * y_resolution) + 0.49);
 
     //printf("%s: %dx%d  @ %d,%d", filename, c->cropped_width, c->cropped_height, c->x_offset, c->y_offset);
 }
@@ -632,8 +632,8 @@ int panoTiffGetCropInformation(pano_Tiff * file)
 	//full image (rounded to nearest integer)
 	// The position of the file is given in "real" dimensions, we have to rescale them
 
-	c->xOffset = (uint32) ((x_position * x_resolution) + 0.49);
-	c->yOffset = (uint32) ((y_position * y_resolution) + 0.49);
+	c->xOffset = (uint32_t) ((x_position * x_resolution) + 0.49);
+	c->yOffset = (uint32_t) ((y_position * y_resolution) + 0.49);
 
 	// One problem is that some images do not contain FULL size. if they don't have
 	// then assume it
@@ -1096,7 +1096,7 @@ int panoTiffSetImageProperties(pano_Tiff * file)
     if (returnValue && metadata->iccProfile.size > 0) {
         returnValue =
             TIFFSetField(tiffFile, TIFFTAG_ICCPROFILE,
-             (uint32)metadata->iccProfile.size,
+             metadata->iccProfile.size,
              (void*)(metadata->iccProfile.data));
              //100, data);
     }
@@ -1141,7 +1141,7 @@ int panoTiffSetImageProperties(pano_Tiff * file)
 int panoTiffReadPlannar(Image * im, pano_Tiff * tif)
 {
     uint8_t *buf;
-    uint32 row;
+    uint32_t row;
     short samplesPerPixel;
     int bytesRead;
     int bitsPerPixel;
@@ -1325,9 +1325,9 @@ int panoTiffReadData(Image * im, pano_Tiff * tif)
     // I changed the stopOnError to 1 so the function reports an error
     // as soon as it happens
 
-    if (TIFFReadRGBAImage(tif->tiff, (uint32) panoTiffImageWidth(tif), 
-                          (uint32) panoTiffImageHeight(tif), 
-                          (uint32 *) * (im->data), 1)) {
+    if (TIFFReadRGBAImage(tif->tiff, (uint32_t) panoTiffImageWidth(tif), 
+                          (uint32_t) panoTiffImageHeight(tif), 
+                          (uint32_t *) * (im->data), 1)) {
         // Convert agbr to argb; flip image vertically
 
         unsigned char *cline, *ct, *cb;
