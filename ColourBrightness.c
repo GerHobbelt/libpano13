@@ -59,8 +59,8 @@
 #define ntohs(A) (A)
 #define ntohl(A) (A)
 #elif defined(LITTLE_ENDIAN) && !defined(BIG_ENDIAN)
-#define htons(A) (((uint16)(A) & 0xff00) >> 8 | ((uint16)(A) & 0x00ff) << 8 )
-#define htonl(A) ((((uint32)(A) & 0xff000000) >> 24) | \
+#define htons(A) (((uint16_t)(A) & 0xff00) >> 8 | ((uint16_t)(A) & 0x00ff) << 8 )
+#define htonl(A) ((((uint32_t)(A) & 0xff000000) >> 24) | \
 ((uint32)(A) & 0x00ff0000) >> 8 | \
 ((uint32)(A) & 0x0000ff00) << 8 | \
 ((uint32)(A) & 0x000000ff) << 24)
@@ -1219,10 +1219,10 @@ histograms_struct *ReadHistograms (fullPath *fullPathImages, int numberImages)
   int otherImage;
   int currentImage;
   TIFF **ptrTIFFs = NULL;
-  uint16 samplesPerPixel;
-  uint16 bitsPerSample;
-  uint32 imageLength;
-  uint32 imageWidth;
+  uint16_t samplesPerPixel;
+  uint16_t bitsPerSample;
+  uint32_t imageLength;
+  uint32_t imageWidth;
   char  tempString[512];
   char  tempString2[512];
   int *ptrInt;
