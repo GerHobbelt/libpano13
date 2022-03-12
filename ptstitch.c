@@ -1059,7 +1059,7 @@ static void panoStitchBlendLayers16Bit(unsigned char **imageDataBuffers, int cou
     unsigned int rowOffset;
 
     uint16_t *u16ResultBuffer = (uint16_t *) resultBuffer;
-    uint16_t **u16ImageDataBuffers = (uint16 **) imageDataBuffers;
+    uint16_t **u16ImageDataBuffers = (uint16_t **) imageDataBuffers;
 
     currentLine = 0;
 

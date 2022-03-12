@@ -761,8 +761,8 @@ int readPSD(Image *im, fullPath *sfile, int mode)
     file_spec       src;
     char            header[128];
     char           *h;
-    uint32           len;
-    uint32           i;
+    uint32_t        len;
+    uint32_t        i;
     size_t          count;
     Boolean         bBig = FALSE;
 
