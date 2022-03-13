@@ -378,7 +378,7 @@ static int panoFormatID[] = {
 int panoProjectionFormatCount(void)
 {
     // Return the number of Projection formats available in the library
-    assert(sizeof(panoFormatNames) == PANO_FORMAT_COUNT * sizeof(typeof (panoFormatNames[0])));
+    assert(sizeof(panoFormatNames) == PANO_FORMAT_COUNT * sizeof(panoFormatNames[0]));
     return PANO_FORMAT_COUNT;
 }
 
