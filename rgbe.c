@@ -27,6 +27,12 @@
  based on code written by Greg Ward
 */
 
+#ifdef _MSC_VER
+#define INLINE __inline
+# else
+#define INLINE inline
+#endif
+
 /* offsets to red, green, and blue components in a data (float) pixel */
 #define RGBE_DATA_RED    0
 #define RGBE_DATA_GREEN  1
@@ -63,7 +69,7 @@ static int rgbe_error(int rgbe_error_code, char *msg)
 
 /* standard conversion from float pixels to rgbe pixels */
 /* note: you can remove the "inline"s if your compiler complains about it */
-INLINE void 
+static INLINE void 
 float2rgbe(unsigned char rgbe[4], float red, float green, float blue)
 {
   float v;
@@ -87,7 +93,7 @@ float2rgbe(unsigned char rgbe[4], float red, float green, float blue)
 /* standard conversion from rgbe to float pixels */
 /* note: Ward uses ldexp(col+0.5,exp-(128+8)).  However we wanted pixels */
 /*       in the range [0,1] to map back into the range [0,1].            */
-INLINE void 
+static INLINE void 
 rgbe2float(float *red, float *green, float *blue, unsigned char rgbe[4])
 {
   float f;
