@@ -61,10 +61,6 @@ int RGBE_ReadPixels_RLE(FILE *fp, float *data, int scanline_width,
 int RGBE_ReadPixels_Raw_RLE(FILE *fp, unsigned char *data, int scanline_width,
             size_t num_scanlines);
 
-
-INLINE void float2rgbe(unsigned char rgbe[4], float red, float green, float blue);
-INLINE void rgbe2float(float *red, float *green, float *blue, unsigned char rgbe[4]);
-
 #ifdef __cplusplus
 }
 #endif
