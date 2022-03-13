@@ -12,7 +12,7 @@
 #define PANOTYPES_H
 
 // First make sure that we have the int8_t, int16_t (32, and 64) and uint8_t equivalents
-#include "pt_stdint.h"
+#include <stdint.h>
 
 
 

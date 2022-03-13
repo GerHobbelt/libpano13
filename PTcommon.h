@@ -34,7 +34,7 @@
 #define __PTcommon_h__
 
 #include "panorama.h"
-#include "pt_stdint.h"
+#include <stdint.h>
 #include "file.h"
 
 typedef struct {

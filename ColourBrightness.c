@@ -32,7 +32,7 @@
 #include "filter.h"
 #include "PTcommon.h"
 #include "ColourBrightness.h"
-#include "pt_stdint.h"
+#include <stdint.h>
 
 #include "tiffio.h"
 #include <assert.h>

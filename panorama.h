@@ -34,7 +34,7 @@
 #define PANO13_IMPEX
 #endif
 
-#include "pt_stdint.h"
+#include <stdint.h>
 #include "version.h"
 #include "panotypes.h"
 

@@ -206,7 +206,6 @@ set(pano13_install_hdr
   version.h
   panotypes.h
   PTcommon.h
-  pt_stdint.h
   file.h
   queryfeature.h
   pteditor.h
