@@ -39,10 +39,10 @@
 
 #define DEFAULT_PREFIX    "uncropped"
 
-#define PT_UNCROP_USAGE "PTuncrop [options] <inputFile> <outputFile>\n\n"\
+#define PT_UNCROP_USAGE "PTuncrop [options] <inputFile>\n\n"\
     "Options:\n"                                                        \
-    "\t-p <prefix>\tPrefix for output files (defaults to " DEFAULT_PREFIX "%%4d)\n"	\
-    "-f\t\tForce processing: Overwrite output file if it exists\n"      \
+    "\t-p <prefix>\tPrefix for output files (defaults to " DEFAULT_PREFIX ")\n"	\
+    "\t-f\t\tForce processing: Overwrite output file if it exists\n"      \
     "\t-x\t\tDelete source files (use with care)\n"\
     "\t-q\t\tQuiet run\n"\
     "\t-h\t\tShow this message\n"\
