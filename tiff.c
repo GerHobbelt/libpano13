@@ -385,6 +385,7 @@ int writeCroppedTIFF(Image * im, fullPath * sfile, CropInfo * crop_info)
     case 32:
         TIFFSetField(tif, TIFFTAG_BITSPERSAMPLE, 8);
         TIFFSetField(tif, TIFFTAG_SAMPLESPERPIXEL, 4);
+        TIFFSetField(tif, TIFFTAG_EXTRASAMPLES, 1, &(uint16_t){EXTRASAMPLE_UNASSALPHA});
         break;
     case 48:
         TIFFSetField(tif, TIFFTAG_BITSPERSAMPLE, 16);
@@ -393,6 +394,7 @@ int writeCroppedTIFF(Image * im, fullPath * sfile, CropInfo * crop_info)
     case 64:
         TIFFSetField(tif, TIFFTAG_BITSPERSAMPLE, 16);
         TIFFSetField(tif, TIFFTAG_SAMPLESPERPIXEL, 4);
+        TIFFSetField(tif, TIFFTAG_EXTRASAMPLES, 1, &(uint16_t){EXTRASAMPLE_UNASSALPHA});
         break;
     case 96:
         TIFFSetField(tif, TIFFTAG_BITSPERSAMPLE, 32);
@@ -402,6 +404,7 @@ int writeCroppedTIFF(Image * im, fullPath * sfile, CropInfo * crop_info)
     case 128:
         TIFFSetField(tif, TIFFTAG_BITSPERSAMPLE, 32);
         TIFFSetField(tif, TIFFTAG_SAMPLESPERPIXEL, 4);
+        TIFFSetField(tif, TIFFTAG_EXTRASAMPLES, 1, &(uint16_t){EXTRASAMPLE_UNASSALPHA});
         TIFFSetField(tif, TIFFTAG_SAMPLEFORMAT, SAMPLEFORMAT_IEEEFP);
         break;
     }
@@ -1077,6 +1080,9 @@ int panoTiffSetImageProperties(pano_Tiff * file)
 			metadata->imageTotalNumber);
 
 
+    if (returnValue && metadata->samplesPerPixel == 4) {
+        returnValue = TIFFSetField(tiffFile, TIFFTAG_EXTRASAMPLES, 1, &(uint16_t){EXTRASAMPLE_UNASSALPHA});
+    }
 
 
     if (returnValue && metadata->bitsPerSample == 32)
