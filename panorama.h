@@ -52,6 +52,8 @@
 #if defined(_BYTE_ORDER) && (_BYTE_ORDER == _BIG_ENDIAN)
 #define PT_BIGENDIAN 1
 #endif
+#elif defined(__APPLE__)
+#include <machine/endian.h>
 #else
 #include <endian.h>
 #endif
