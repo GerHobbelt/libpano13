@@ -69,7 +69,10 @@
 #else
 #error "Either BIG_ENDIAN or LITTLE_ENDIAN must be #defined, but not both."
 #endif
-
+#elif defined (__has_include)
+#if __has_include(<arpa/inet.h>)
+#include <arpa/inet.h>
+#endif
 #endif  //def WIN32
 
 
