@@ -331,10 +331,17 @@ void 	showScript			( fullPath* scriptFile )
 {
 	char cmd[sizeof(fullPath) + 16];
 	
-	snprintf( cmd, sizeof(cmd)-1, "vi \"%s\"", scriptFile->name );
-	if (system( cmd ) == -1) {
-            PrintError("Unable to execute script editor");
-        }
+	if (panoSingleFileExists(scriptFile->name) == 1)
+	{
+		snprintf(cmd, sizeof(cmd) - 1, "vi \"%s\"", scriptFile->name);
+		if (system(cmd) == -1) {
+			PrintError("Unable to execute script editor");
+		}
+	}
+	else
+	{
+		PrintError("Script file %s is not a valid file.", scriptFile->name);
+	}
 }
 	
 
