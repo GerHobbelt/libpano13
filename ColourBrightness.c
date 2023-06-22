@@ -793,10 +793,8 @@ void FreeHistograms(histograms_struct *ptrHistograms, int count)
 int CorrectFileColourBrightness(fullPath *inPath, fullPath *outPath, magnolia_struct *magnolia, int parm3)
 {
   Image image;
-  char tempString[512];
   if (panoTiffRead (&image, inPath->name) == 0) {
-    snprintf(tempString, sizeof(tempString)-1, "Could not read TIFF file %s", inPath->name);
-    PrintError(tempString);
+    PrintError("Could not read TIFF file %s", inPath->name);
     return -1;
   }   
 
@@ -1227,7 +1225,6 @@ histograms_struct *ReadHistograms (fullPath *fullPathImages, int numberImages)
   uint32_t imageLength;
   uint32_t imageWidth;
   char  tempString[512];
-  char  tempString2[512];
   int *ptrInt;
   histograms_struct * currentHistogram;
   histograms_struct * saveReturnValue;
@@ -1280,8 +1277,7 @@ histograms_struct *ReadHistograms (fullPath *fullPathImages, int numberImages)
     }
     
     if ((ptrTIFFs[currentImage] = TIFFOpen(tempString, "r")) == NULL) {
-      snprintf(tempString2, sizeof(tempString2)-1, "Could not open TIFF file [%s]", tempString);
-      PrintError(tempString2);
+      PrintError("Could not open TIFF file [%s]", tempString);
       saveReturnValue = 0;
       goto Exit;
     }
