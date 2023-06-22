@@ -1213,7 +1213,7 @@ histograms_struct *ReadHistograms (fullPath *fullPathImages, int numberImages)
   histograms_struct *ptrHistograms; //     << arrays of n * (n-1)/2 daisies
   int bytesPerLine;
   int  bitsPerPixel;
-  unsigned char *imagesDataBuffer; // numberOfImages * bytesPerLine
+  unsigned char *imagesDataBuffer = 0; // numberOfImages * bytesPerLine
   int bytesPerPixel;
   int  currentPixel;
   int currentRow;
