@@ -866,7 +866,7 @@ int ParseScript( char* script, AlignInfo *gl )
 
 // Report Results 
 
-void WriteResults( char* script, fullPath *sfile,  AlignInfo *g, double ds( int i), int launch)
+void WriteResults( char* script, fullPath *sfile,  AlignInfo *g, double ds( int i) )
 {
     char        *res, **hres, *line;
     int         optHfov;         // Has hfov being optimized?
@@ -1137,7 +1137,7 @@ void WriteResults( char* script, fullPath *sfile,  AlignInfo *g, double ds( int 
             }
         }
     }
-    if( WriteScript( res, sfile, launch ) != 0 )
+    if( WriteScript( res, sfile ) != 0 )
     {
         PrintError("Could not write results to scriptfile");
     }
@@ -1393,7 +1393,7 @@ int readAdjust( aPrefs *p,  fullPath* sfile, int insert, sPrefs *sP )
     }
     
     
-    if( WriteScript( script, sfile, 0 ) != 0 )      {
+    if( WriteScript( script, sfile ) != 0 )      {
         PrintError("Could not write scriptfile");
         goto fail;
     }

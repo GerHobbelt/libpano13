@@ -650,7 +650,7 @@ PANO13_IMPEX void 	SaveOptions			( struct correct_Prefs * thePrefs );
 PANO13_IMPEX int 	LoadOptions			( struct correct_Prefs * thePrefs );
 PANO13_IMPEX void  	FindScript			( struct adjust_Prefs *thePrefs );
 PANO13_IMPEX char* 	LoadScript			( fullPath* scriptFile  );
-PANO13_IMPEX int 	WriteScript			( char* res, fullPath* scriptFile, int launch );
+PANO13_IMPEX int 	WriteScript			( char* res, fullPath* scriptFile );
 // Write PSB and PSD files
 PANO13_IMPEX int 	writePS 			( Image *im, fullPath* fname, Boolean bBig );			// On Mac: fname is FSSpec*	
 PANO13_IMPEX int 	writePSD			( Image *im, fullPath* fname );
@@ -662,7 +662,6 @@ PANO13_IMPEX int 	readPSDMultiLayerImage( MultiLayerImage *mim, fullPath* sfile)
 PANO13_IMPEX int 	FindFile			( fullPath *fname );
 PANO13_IMPEX int 	SaveFileAs			( fullPath *fname, char *prompt, char *name );
 PANO13_IMPEX void 	ConvFileName		( fullPath *fname,char *string);
-PANO13_IMPEX void 	showScript			( fullPath* scriptFile );
 PANO13_IMPEX void 	MakeTempName		( fullPath *fspec, char *fname );
 PANO13_IMPEX void 	makePathForResult	( fullPath *path );
 PANO13_IMPEX int 	makePathToHost 		( fullPath *path );
@@ -676,7 +675,6 @@ PANO13_IMPEX int	readTIFF			( Image *im, fullPath *sfile );
 PANO13_IMPEX int 	writeJPEG			( Image *im, fullPath *sfile, 	int quality, int progressive );
 PANO13_IMPEX int 	writePNG			( Image *im, fullPath *sfile );
 PANO13_IMPEX int 	readPNG				( Image *im, fullPath *sfile );
-PANO13_IMPEX int 	LaunchAndSendScript(char* application, char* script);
 PANO13_IMPEX aPrefs* readAdjustLine( fullPath *theScript );
 
 #ifdef __Mac__
@@ -743,7 +741,7 @@ PANO13_IMPEX void 	DoColorCorrection( Image *im1, Image *im2, int mode );
 // Script Reading/Parsing/Writing
 
 PANO13_IMPEX int 	ParseScript			( char* script, AlignInfo *gl );
-PANO13_IMPEX void 	WriteResults		( char* script, fullPath *sfile, AlignInfo *g, double ds( int i) , int launch);
+PANO13_IMPEX void 	WriteResults		( char* script, fullPath *sfile, AlignInfo *g, double ds( int i) );
 PANO13_IMPEX int 	readAdjust		( aPrefs *p,  fullPath* sfile, int insert, sPrefs *sP );
 PANO13_IMPEX void 	readControlPoints	(char* script, controlPoint *c );
 PANO13_IMPEX int	getVRPanoOptions	( VRPanoOptions *v, char *line );

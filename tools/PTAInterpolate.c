@@ -127,7 +127,7 @@ int main(int argc,char *argv[])
 		//why yet.
 		RunLMOptimizer( &opt );
 		ainf.data		= opt.message;
-		WriteResults( script, &infile, &ainf, distSquared, 0);
+		WriteResults( script, &infile, &ainf, distSquared );
 		
 		//----------------------------------------------------------//
 		//Second...Create as many output images as requested.

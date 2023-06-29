@@ -322,17 +322,6 @@ void 	myfree( void** Hdl )						// free Memory, use Handles
 	free( (char**) Hdl );
 }		
 
-
-void 	showScript			( fullPath* scriptFile )
-{
-	char cmd[sizeof(fullPath) + 16];
-	
-	sprintf( cmd, "xedit \"%s\"", scriptFile->name );
-	system( cmd );
-}
-	
-
-
 void 	makePathForResult	( fullPath *path )
 {
 	char *home_dir;

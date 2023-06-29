@@ -80,7 +80,7 @@ int main(int argc,char *argv[])
 
 				RunLMOptimizer( &opt );
 				ainf.data		= opt.message;
-				WriteResults( script, &infile, &ainf, distSquared, 0);
+				WriteResults( script, &infile, &ainf, distSquared );
 				exit(0);
 			}
       //TODO: if optCreatePano is 1 then should call stitcher  OR  the option removed
