@@ -236,22 +236,6 @@ JNIEXPORT void JNICALL Java_ptutils_CCallOptimizer
 
 /*
  * Class:     ptutils
- * Method:    CShowScript
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_ptutils_CShowScript
-  (JNIEnv *, jobject);
-
-/*
- * Class:     ptutils
- * Method:    CLaunchAndSendScript
- * Signature: (Ljava/lang/String;Ljava/lang/String;)V
- */
-JNIEXPORT void JNICALL Java_ptutils_CLaunchAndSendScript
-  (JNIEnv *, jobject, jstring, jstring);
-
-/*
- * Class:     ptutils
  * Method:    CGetImageFormat
  * Signature: (I)I
  */

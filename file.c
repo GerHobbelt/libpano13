@@ -2445,7 +2445,7 @@ _loadError:
 }
 
 
-int WriteScript( char* res, fullPath* scriptFile, int launch )
+int WriteScript( char* res, fullPath* scriptFile )
 {
     fullPath    sfile;
     file_spec   fnum;
@@ -2472,10 +2472,6 @@ int WriteScript( char* res, fullPath* scriptFile, int launch )
     mywrite( fnum, count, res );
     myclose (fnum );
 
-    if( launch == 1 )
-    {
-        showScript( &sfile);
-    }
     return 0;
 
 _writeError:

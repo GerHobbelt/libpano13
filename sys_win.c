@@ -561,23 +561,6 @@ void 	myfree( void** Hdl )						// free Memory, use Handles
 	}
 }
 
-
-
-
-
-
-
-// Display Scriptfile using plain text editor
-
-void showScript( fullPath* scriptFile )
-{
-	char cmd[ MAX_PATH_LENGTH + 32 ];
-	snprintf( cmd, sizeof(cmd)-1, "Notepad \"%s\"", scriptFile->name );
-	WinExec( cmd , SW_SHOWNORMAL );
-}
-
-	
-
 void CenterDialog(HWND hDlg)
 {
     HWND hParent;
@@ -910,27 +893,6 @@ int IsTextFile( char* fname )
 
 	return FALSE;
 }
-
-int LaunchAndSendScript(char* application, char* script){
-	char *cmd;
-	
-	cmd = (char*) malloc( strlen(application) + strlen(script) + 16 );
-	
-	if( cmd == NULL )
-	{
-		PrintError("Not enough memory");
-		return -1;
-	}
-	sprintf( cmd , "%s %s", application, script );
-	if(strlen(cmd)<256){
-		WinExec( cmd , SW_SHOWNORMAL );
-		return 0;
-	}else{
-		PrintError("Command too long for WinExec");
-		free( cmd );
-		return -1;
-	}
-}		
 
 int 	StringtoFullPath	(fullPath *path, char *filename){
 	if( strlen( filename ) < 256 ){

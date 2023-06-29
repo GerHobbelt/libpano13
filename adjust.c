@@ -438,7 +438,7 @@ void adjust(TrformStr *TrPtr, aPrefs *prefs)
                                                 
                                                 sprintf( newscript, "%s\n%s", script, cdesc );
                                                 
-                                                if( WriteScript( newscript,&( prefs->scriptFile), 0 ) != 0 )
+                                                if( WriteScript( newscript,&( prefs->scriptFile) ) != 0 )
                                                                                 PrintError( "Could not write Scriptfile" );
                                                 free( newscript );
                                         }
@@ -477,8 +477,7 @@ void adjust(TrformStr *TrPtr, aPrefs *prefs)
                                                         *opt.message            = 0;
                                                         RunLMOptimizer( &opt );
                                                         optInfo->data                           = opt.message;
-                                                        WriteResults( script, &(prefs->scriptFile), optInfo, distSquared ,
-                                                                    ( TrPtr->mode & 7 ) != _usedata );
+                                                        WriteResults( script, &(prefs->scriptFile), optInfo, distSquared );
                                                 }
                                                 DisposeAlignInfo( &ainf );                                      // These were allocated by 'ParseScript()'
                                         }

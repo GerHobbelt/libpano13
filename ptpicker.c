@@ -624,58 +624,13 @@ JNIEXPORT void JNICALL Java_ptutils_CCallOptimizer
 		
 	// First Optimizer data
 		
-	WriteResults( script, &project, gl, distSquared ,0 );
+	WriteResults( script, &project, gl, distSquared );
 	if( script ) free( script ); 
 #ifdef __Mac__
 	unsetLibToResFile();
 #endif
 	Restore();
 }
-
-
-JNIEXPORT void JNICALL Java_ptutils_CShowScript
-  (JNIEnv *env, jobject obj){
-	SET_JAVA
-	showScript( &project );
-}
-
-JNIEXPORT void JNICALL Java_ptutils_CLaunchAndSendScript
-  (JNIEnv *env, jobject obj,  jstring japp, jstring joutput){
-	char *script = malloc( 512 * 2 + 100);
-	char fname[512];
-	char appPath[32];
-	fullPath fspec;
-	const char *output = (*env)->GetStringUTFChars(env, joutput, 0);
-	const char *app = (*env)->GetStringUTFChars(env, japp, 0);
-
-	SET_JAVA
-
-	if( script == NULL ) return;
-
-	if( output == NULL || strlen(output) == 0 ){
-		script[0] = 0;
-	}else{
-		jpathTofullPath( output, &fspec );
-
-		FullPathtoString( &fspec, fname );
-		sprintf(script,"-o \"%s\" ", fname);
-	}
-	(*env)->ReleaseStringUTFChars(env, joutput, output);
-						
-	memcpy( &fspec, &project, sizeof( fullPath ));
-						
-	FullPathtoString( &fspec, fname );
-	strcat(script, "\"");
-	strcat(script,fname);
-	strcat(script, "\" ");
-
-	sprintf(appPath, "%s%s", HELPERS, app);
-	LaunchAndSendScript( appPath, script);
-	(*env)->ReleaseStringUTFChars(env, japp, app);
-	if( script ) free( script );
-}
-
-
 
 int writeProject( AlignInfo *g, fullPath *pFile)
 {

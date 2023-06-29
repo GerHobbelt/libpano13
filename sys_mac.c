@@ -537,16 +537,6 @@ void myfree( void** Hdl )
 }
 		
 
-// Display Scriptfile using plain text editor
-
-void showScript( fullPath* scriptFile )
-{
-		open_selection( scriptFile );
-}
-
-
-
-
 //------------------ Some Private functions ---------------------------------------------
 	
 	
@@ -1072,59 +1062,6 @@ Boolean IsAppRunning(FSSpec *myApp)
 	return (false);
 }
 
-
-#include <time.h>
-
-int LaunchAndSendScript(char* application, char* script){
-	AEAddressDesc	target;
-	OSErr			myErr;
-	AppleEvent		appleEvent,reply;
-	fullPath		theApp;
-	FInfo			finfo;
-	EventRecord				event;
-	int tt;
-
-	if( makePathToHost( &theApp ) != 0 ){
-		PrintError("Could not find host application");
-		return -1;
-	}
-	
-	strcpy((char*)theApp.name, application);
-	c2pstr((char*)theApp.name);
-
-	open_selection( &theApp );
-
-	tt = time(NULL);
-	while( time(NULL) < tt + 10  && !IsAppRunning(&theApp) )
-			WaitNextEvent ( everyEvent, &event, 100L, nil);
-	
-
-     // Create Descriptor 
-
-	FSpGetFInfo (&theApp,&finfo) ;
-    myErr = AECreateDesc( typeApplSignature, (Ptr)(&finfo.fdCreator),
-                                (Size)sizeof( finfo.fdCreator ), &target);
-	
-	if(myErr != noErr){
-		PrintError("Error creating AE descriptor");
-		return -1;
-	}
-	
-
-	if( MakeDoScriptEvent(script, &appleEvent, &target, 'dosc')){
-		PrintError("Error creating DOSC Apple Event");
-		return -1;
-	}
-
-	AESend(&appleEvent, &reply, kAENoReply+kAENeverInteract, 
-				 kAENormalPriority, kAEDefaultTimeout, nil, nil) ;
-
-	AEDisposeDesc(&appleEvent);
-	AEDisposeDesc(&reply) ;
-	
-	return 0;
-}		
-	
 unsigned char *MyCtoPStr(char *x) //added by Kekus Digital
 { 
     CopyCStringToPascal(x,x); 
