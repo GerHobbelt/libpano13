@@ -2474,7 +2474,7 @@ int WriteScript( char* res, fullPath* scriptFile, int launch )
 
     if( launch == 1 )
     {
-        showScript( &sfile);
+        printf("function WriteScript: parameter launch is deprecated\n");
     }
     return 0;
 

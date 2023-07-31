@@ -329,19 +329,7 @@ void 	myfree( void** Hdl )						// free Memory, use Handles
 
 void 	showScript			( fullPath* scriptFile )
 {
-	char cmd[sizeof(fullPath) + 16];
-	
-	if (panoSingleFileExists(scriptFile->name) == 1)
-	{
-		snprintf(cmd, sizeof(cmd) - 1, "vi \"%s\"", scriptFile->name);
-		if (system(cmd) == -1) {
-			PrintError("Unable to execute script editor");
-		}
-	}
-	else
-	{
-		PrintError("Script file %s is not a valid file.", scriptFile->name);
-	}
+	printf("Function showScript is deprecated and will be removed completely in next version\n");
 }
 	
 
@@ -421,16 +409,7 @@ int IsTextFile( char* fname )
 }
 
 int LaunchAndSendScript(char *application, char *script){
-	char *cmd = (char*)malloc( strlen(application) + strlen(script) + 16);
-	if( cmd == NULL){
-		PrintError("Not enough memory");
-		return -1;
-	}
-	snprintf(cmd, strlen(application) + strlen(script) + 15, "%s %s", application, script );
-	if (system( cmd ) == -1) {
-            PrintError("Unable to launch script");
-        }
-	free(cmd);
+	printf("Function LaunchAndSendScript is deprecated and will be removed completely in next version\n");
 	return 0;
 }
 
