@@ -623,8 +623,10 @@ static void makeUcharImage( Image *image, double *re, int color )
 		}
 	}
 	// Dangerous, but should be ok
-	if( glu.DeGamma ) free( glu.DeGamma ); glu.DeGamma 	= NULL;
-	if( glu.Gamma )	free( glu.Gamma );	glu.Gamma 	= NULL;
+	if( glu.DeGamma )	free( glu.DeGamma );
+	glu.DeGamma = NULL;
+	if( glu.Gamma )	free( glu.Gamma );
+	glu.Gamma = NULL;
 }
 
 
