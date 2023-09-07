@@ -458,14 +458,14 @@ int ParseScript( char* script, AlignInfo *gl )
                         case '\t': li++; break;
                         case 'i' : READ_VAR( "%d", &(gl->t[nt].nIm));   break;
                         default  : if(i<3)
-                            {
-                                li--;
-                                READ_VAR( "%d", &(gl->t[nt].vert[i]) ); 
-                                i++;
-                            }
-                        else
-                            li++;
-                            break;
+                                       {
+                                           li--;
+                                           READ_VAR( "%d", &(gl->t[nt].vert[i]) ); 
+                                           i++;
+                                       }
+                                   else
+                                       li++;
+                                   break;
                         }
                 }
             nt++;
