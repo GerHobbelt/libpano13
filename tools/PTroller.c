@@ -68,15 +68,12 @@ int main(int argc,char *argv[])
     fullPath *ptrInputFiles   = NULL;
     fullPath *ptrOutputFiles  = NULL;
     
-    int counter;
     char flatOutputFileName[MAX_PATH_LENGTH];
     int filesCount = 0;
     int base = 0;
     fullPath pathName;
     int ptForceProcessing = 0;
     int ptDeleteSources = 0;
-
-    counter = 0;
 
     printf(PT_ROLLER_VERSION);
 
