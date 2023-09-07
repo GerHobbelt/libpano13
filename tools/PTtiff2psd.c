@@ -75,7 +75,6 @@ int main(int argc,char *argv[])
     int opt;
     char *endPtr;
     fullPath *ptrInputFiles;
-    int counter;
     fullPath outputFilename;
     int filesCount;
     int base = 0;
@@ -90,7 +89,6 @@ int main(int argc,char *argv[])
     bzero(&flatteningParms, sizeof(flatteningParms));
 
     ptrInputFiles = NULL;
-    counter = 0;
 
     printf(PT_TIFF2PSD_VERSION);
 

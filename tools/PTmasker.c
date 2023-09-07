@@ -89,7 +89,6 @@ int main(int argc,char *argv[])
     fullPath *ptrInputFiles   = NULL;
     fullPath *ptrOutputFiles  = NULL;
     
-    int counter;
     char outputPrefix[MAX_PATH_LENGTH];
     int filesCount = 0;
     int base = 0;
@@ -101,7 +100,6 @@ int main(int argc,char *argv[])
     int focusEstimationMaskType = -1;
     int focusEstimationSmoothingWindowSize = 0;
 
-    counter = 0;
     outputPrefix[0] = 0;
 
     printf(PT_MASKER_VERSION);

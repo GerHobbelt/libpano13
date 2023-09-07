@@ -77,7 +77,6 @@ int main(int argc,char *argv[])
     fullPath *ptrInputFiles   = NULL;
     fullPath *ptrOutputFiles  = NULL;
 
-    int counter;
     char outputPrefix[MAX_PATH_LENGTH];
     char *endPtr;
     int filesCount = 0;
@@ -87,8 +86,6 @@ int main(int argc,char *argv[])
     int typeCorrection = 0;
     int ptForceProcessing = 0;
     int ptDeleteSources = 0;
-
-    counter = 0;
 
     printf(PT_BLENDER_VERSION);
 
