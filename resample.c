@@ -1520,10 +1520,16 @@ void MyTransForm( TrformStr *TrPtr, fDesc *fD, int color, int imageNum)
 Trform_exit:
 	if( rgb ) 		free( rgb );
 	if( cdata ) 		free( cdata );
-	if( glu.DeGamma )	free( glu.DeGamma );
-	glu.DeGamma = NULL;
-	if( glu.Gamma )	free( glu.Gamma );
-	glu.Gamma = NULL;
+	if (glu.DeGamma)
+	{
+		free(glu.DeGamma);
+		glu.DeGamma = NULL;
+	}
+	if (glu.Gamma)
+	{
+		free(glu.Gamma);
+		glu.Gamma = NULL;
+	}
 
 	// FS+
 	if( ax != NULL ) free( ax );
@@ -2499,10 +2505,16 @@ void transForm_aa( TrformStr *TrPtr, fDesc *fD,fDesc *finvD, int color, int imag
 
 
 Trform_exit:
-	if( glu.DeGamma )	free( glu.DeGamma );
-	glu.DeGamma = NULL;
-	if( glu.Gamma )	free( glu.Gamma );
-	glu.Gamma = NULL;
+	if (glu.DeGamma)
+	{
+		free(glu.DeGamma);
+		glu.DeGamma = NULL;
+	}
+	if (glu.Gamma)
+	{
+		free(glu.Gamma);
+		glu.Gamma = NULL;
+	}
 
 	if(invCache != NULL) free(invCache);
 	if(ffStack != NULL) free(ffStack);
